@@ -20,7 +20,7 @@
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
 
 		<route id="sendmail-route">
-			<from uri="activemq:bookings" />
+			<from uri="activemq:bookings?username=admin&amp;password=admin" />
 			<setHeader headerName="to">
 				<xpath>/customer/email/text()</xpath>
 			</setHeader>
