@@ -20,7 +20,7 @@
 	<camelContext xmlns="http://camel.apache.org/schema/spring">
 
 		<route id="sendmail-route">
-			<from uri="activemq:bookings?brokerURL=tcp://amq:61616&amp;username=admin&amp;password=admin" />
+			<from uri="activemq:bookings?username=admin&amp;password=admin" />
 			<setHeader headerName="to">
 				<xpath>/customer/email/text()</xpath>
 			</setHeader>
@@ -38,5 +38,9 @@
 
 	</camelContext>
 
+	 <bean id="activemq" 
+      class="org.apache.activemq.camel.component.ActiveMQComponent">
+      <property name="brokerURL" value="tcp://amq:61616"/>
+   </bean>
 </beans>
 <!-- END SNIPPET: e1 -->
