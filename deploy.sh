@@ -9,9 +9,9 @@ osc create -f - <<EOF || true
 kind: ImageStream
 apiVersion: v1beta1
 metadata:
-  name: camel
+  name: emailroute
   labels:
-    service: camel
+    service: emailroute
     function: application
 EOF
 
@@ -22,9 +22,9 @@ items:
 - kind: DeploymentConfig
   apiVersion: v1beta1
   metadata:
-    name: camel
+    name: emailroute
     labels:
-      service: camel
+      service: emailroute
       function: application
   triggers:
   - type: ConfigChange
@@ -32,9 +32,9 @@ items:
     imageChangeParams:
       automatic: true
       containerNames:
-      - camel
+      - emailroute
       from:
-        name: camel
+        name: emailroute
       tag: latest
   template:
     strategy:
@@ -42,15 +42,15 @@ items:
     controllerTemplate:
       replicas: 1
       replicaSelector:
-        service: camel
+        service: emailroute
         function: application
       podTemplate:
         desiredState:
           manifest:
             version: v1beta2
             containers:
-            - name: camel
-              image: camel:latest
+            - name: emailroute
+              image: emailroute:latest
               ports:
               - containerPort: 8778
                 name: jolokia
@@ -58,7 +58,7 @@ items:
               - name: MQ_SERVICE_PREFIX_MAPPING
                 value: amq
               - name: AMQ_TCP_SERVICE_HOST
-                value: amq
+                value: broker
               - name: AMQ_TCP_SERVICE_PORT
                 value: "61616"
               - name: amq_JNDI
@@ -68,6 +68,6 @@ items:
               - name: amq_PASSWORD
                 value: admin
         labels:
-          service: camel
+          service: emailroute
           function: application
 EOF

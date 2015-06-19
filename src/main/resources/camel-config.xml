@@ -40,7 +40,7 @@
 
 	 <bean id="activemq" 
       class="org.apache.activemq.camel.component.ActiveMQComponent">
-      <property name="brokerURL" value="tcp://amq:61616"/>
+      <property name="brokerURL" value="tcp://broker:61616"/>
    </bean>
 </beans>
 <!-- END SNIPPET: e1 -->

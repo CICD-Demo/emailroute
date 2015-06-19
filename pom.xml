@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jboss.examples</groupId>
-	<artifactId>camel</artifactId>
+	<artifactId>emailroute</artifactId>
 	<version>0.1</version>
 	<packaging>war</packaging>
-	<name>camel</name>
+	<name>emailroute</name>
 
 	<properties>
 		<spring-version>3.2.8.RELEASE</spring-version>

@@ -11,18 +11,20 @@ osc create -f - <<EOF || true
 kind: ImageStream
 apiVersion: v1beta1
 metadata:
-  name: camel
+  name: emailroute
   labels:
-    component: camel
+    service: emailroute
+    function: application
 EOF
 
 osc create -f - <<EOF
 kind: BuildConfig
 apiVersion: v1beta1
 metadata:
-  name: camel
+  name: emailroute
   labels:
-    component: camel
+    service: emailroute
+    function: application
 triggers:
 - type: generic
   generic:
@@ -39,8 +41,8 @@ parameters:
     type: Git
     git:
       ref: master
-      uri: http://gogs.$INFRA/$PROJECT/camel
+      uri: http://gogs.$INFRA/$PROJECT/emailroute
   output:
     to:
-      name: camel
+      name: emailroute
 EOF
