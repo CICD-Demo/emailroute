@@ -11,7 +11,8 @@ apiVersion: v1beta1
 metadata:
   name: camel
   labels:
-    component: camel
+    service: camel
+    function: application
 EOF
 
 osc create -f - <<EOF
@@ -23,7 +24,8 @@ items:
   metadata:
     name: camel
     labels:
-      component: camel
+      service: camel
+      function: application
   triggers:
   - type: ConfigChange
   - type: ImageChange
@@ -40,7 +42,8 @@ items:
     controllerTemplate:
       replicas: 1
       replicaSelector:
-        component: camel
+        service: camel
+        function: application
       podTemplate:
         desiredState:
           manifest:
@@ -65,5 +68,6 @@ items:
               - name: amq_PASSWORD
                 value: admin
         labels:
-          component: camel
+          service: camel
+          function: application
 EOF
