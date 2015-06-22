@@ -25,7 +25,7 @@
 				<xpath>/customer/email/text()</xpath>
 			</setHeader>
 			<setHeader headerName="from">
-				<constant>ticketmonster@redhat.com</constant>
+				<constant>webmaster@redhat.com</constant>
 			</setHeader>
 			<setHeader headerName="subject">
 				<constant>Subject</constant>
