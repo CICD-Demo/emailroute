@@ -44,7 +44,7 @@ spec:
     type: Git
     git:
       ref: master
-      uri: http://gogs.$INFRA/$PROJECT/emailroute
+      uri: http://gogs.$DOMAIN/$PROJECT/emailroute
   output:
     to:
       name: emailroute
